@@ -187,7 +187,7 @@ export default function AdminDashboard() {
 
     if (loading) {
         return (
-            <div className="flex items-center justify-center min-h-screen bg-[#09090b]">
+            <div className="flex items-center justify-center min-h-screen bg-background">
                 <div className="w-8 h-8 border-2 border-rose-500 border-t-transparent rounded-full animate-spin" />
             </div>
         );
@@ -500,35 +500,35 @@ export default function AdminDashboard() {
                             initial={{ opacity: 0, scale: 0.95 }}
                             animate={{ opacity: 1, scale: 1 }}
                             exit={{ opacity: 0, scale: 0.95 }}
-                            className="bg-white text-zinc-950 w-full max-w-lg rounded-2xl border border-zinc-200 shadow-2xl overflow-hidden"
+                            className="bg-background text-foreground w-full max-w-lg rounded-2xl border border-border shadow-2xl overflow-hidden"
                         >
                             <div className="p-6">
                                 <div className="flex justify-between items-start mb-6">
                                     <div>
-                                        <h3 className="text-2xl font-bold text-zinc-900">{selectedEvent.title}</h3>
-                                        <p className="text-zinc-500 text-sm mt-1">{selectedEvent.organizer?.name}</p>
+                                        <h3 className="text-2xl font-bold text-foreground">{selectedEvent.title}</h3>
+                                        <p className="text-muted-foreground text-sm mt-1">{selectedEvent.organizer?.name}</p>
                                     </div>
-                                    <button onClick={() => setSelectedEvent(null)} className="text-zinc-400 hover:text-zinc-900">
+                                    <button onClick={() => setSelectedEvent(null)} className="text-muted-foreground hover:text-foreground">
                                         <X className="w-5 h-5" />
                                     </button>
                                 </div>
 
                                 <div className="space-y-4 mb-8">
                                     <div className="grid grid-cols-2 gap-4 text-sm">
-                                        <div className="flex items-center text-zinc-500">
+                                        <div className="flex items-center text-muted-foreground">
                                             <Calendar className="w-4 h-4 mr-2" />
                                             {new Date(selectedEvent.date).toLocaleDateString()}
                                         </div>
-                                        <div className="flex items-center text-zinc-500">
+                                        <div className="flex items-center text-muted-foreground">
                                             <MapPin className="w-4 h-4 mr-2" />
                                             {selectedEvent.location}
                                         </div>
-                                        <div className="flex items-center text-zinc-500 col-span-2">
+                                        <div className="flex items-center text-muted-foreground col-span-2">
                                             <Building className="w-4 h-4 mr-2" />
                                             Category: {selectedEvent.category}
                                         </div>
                                     </div>
-                                    <p className="text-sm text-zinc-600 leading-relaxed bg-zinc-50 p-3 rounded-lg border border-zinc-100">
+                                    <p className="text-sm text-muted-foreground leading-relaxed bg-secondary/50 p-3 rounded-lg border border-border">
                                         {selectedEvent.description}
                                     </p>
                                 </div>
@@ -561,32 +561,32 @@ export default function AdminDashboard() {
                             initial={{ opacity: 0, scale: 0.95 }}
                             animate={{ opacity: 1, scale: 1 }}
                             exit={{ opacity: 0, scale: 0.95 }}
-                            className="bg-white text-zinc-950 w-full max-w-md rounded-2xl border border-zinc-200 shadow-2xl overflow-hidden"
+                            className="bg-background text-foreground w-full max-w-md rounded-2xl border border-border shadow-2xl overflow-hidden"
                         >
                             <div className="p-6">
                                 <div className="flex items-center gap-3 mb-4">
-                                    <div className="p-2 bg-red-100 rounded-full">
+                                    <div className="p-2 bg-red-500/10 rounded-full">
                                         <AlertTriangle className="w-5 h-5 text-red-600" />
                                     </div>
-                                    <h3 className="text-lg font-semibold text-zinc-900">Reject Event</h3>
+                                    <h3 className="text-lg font-semibold text-foreground">Reject Event</h3>
                                 </div>
-                                <p className="text-sm text-zinc-500 mb-4">
+                                <p className="text-sm text-muted-foreground mb-4">
                                     Are you sure you want to reject this event? You can provide an optional reason for the organizer.
                                 </p>
                                 <div className="mb-6">
-                                    <label className="block text-sm font-medium text-zinc-700 mb-1.5">Rejection Reason (optional)</label>
+                                    <label className="block text-sm font-medium text-foreground/80 mb-1.5">Rejection Reason (optional)</label>
                                     <textarea
                                         value={rejectionReason}
                                         onChange={(e) => setRejectionReason(e.target.value)}
                                         placeholder="e.g., Incomplete event details, violates community guidelines..."
-                                        className="w-full rounded-lg border border-zinc-300 bg-zinc-50 px-3 py-2 text-sm text-zinc-800 placeholder:text-zinc-400 focus:outline-none focus:ring-2 focus:ring-red-500/40 focus:border-red-400 min-h-[80px] resize-none"
+                                        className="w-full rounded-lg border border-border bg-secondary/50 px-3 py-2 text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-red-500/40 focus:border-red-400 min-h-[80px] resize-none"
                                     />
                                 </div>
                                 <div className="flex gap-3 justify-end">
                                     <Button
                                         variant="ghost"
                                         onClick={() => { setRejectTarget(null); setRejectionReason(''); }}
-                                        className="text-zinc-500 hover:text-zinc-700"
+                                        className="text-muted-foreground hover:text-foreground"
                                     >
                                         Cancel
                                     </Button>

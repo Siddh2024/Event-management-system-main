@@ -2,13 +2,14 @@
 import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence, easeInOut } from "framer-motion";
 import { Menu, X, ArrowRight, Zap, Search, User, LogOut, LayoutDashboard, Settings, ChevronDown } from "lucide-react";
+import ThemeToggle from "../ui/ThemeToggle";
 import { useAuth } from "../../context/AuthContext";
 import { Link, useNavigate} from "react-router-dom";
 
 const navItems = [
   { name: "Home", href: "/" },
   { name: "Features", href: "/features" },
-  { name: "Pricing", href: "#pricing" },
+  { name: "Pricing", href: "/pricing" },
   { name: "About", href: "/about-us" },
   { name: "Contact", href: "/contact" },
 ];
@@ -153,6 +154,8 @@ export default function Header2() {
                 <Search className="h-5 w-5" />
               </motion.button>
 
+              <ThemeToggle />
+
               {user ? (
                 <div className="relative">
                   <motion.button
@@ -179,7 +182,7 @@ export default function Header2() {
                         animate={{ opacity: 1, y: 0, scale: 1 }}
                         exit={{ opacity: 0, y: 10, scale: 0.95 }}
                         transition={{ duration: 0.2 }}
-                        className="absolute -right-12 mt-2 w-56 rounded-xl bg-white border border-border/50 shadow-xl overflow-hidden z-50"
+                        className="absolute -right-12 mt-2 w-56 rounded-xl bg-background dark:bg-card border border-border/50 shadow-xl overflow-hidden z-50"
                       >
                         <div className="p-2 space-y-1">
                           <div className="px-3 py-2 border-b border-border/50 mb-1">
@@ -212,7 +215,7 @@ export default function Header2() {
                               setIsProfileMenuOpen(false);
                               logout(navigate);
                             }}
-                            className="flex items-center space-x-2 w-full px-3 py-2 text-sm text-red-500 hover:bg-red-50 hover:text-red-600 rounded-lg transition-colors"
+                            className="flex items-center space-x-2 w-full px-3 py-2 text-sm text-red-500 hover:bg-red-500/10 hover:text-red-600 rounded-lg transition-colors"
                           >
                             <LogOut className="h-4 w-4" />
                             <span>Logout</span>
@@ -289,6 +292,11 @@ export default function Header2() {
                   ))}
                 </div>
 
+                <div className="flex items-center justify-between border-t border-border pt-4 px-4">
+                  <span className="text-sm text-muted-foreground">Theme</span>
+                  <ThemeToggle />
+                </div>
+
                 <motion.div
                   className="border-border space-y-3 border-t pt-6"
                   variants={mobileItemVariants}>
@@ -319,7 +327,7 @@ export default function Header2() {
                           setIsMobileMenuOpen(false);
                           logout(navigate);
                         }}
-                        className="flex items-center space-x-2 w-full px-4 py-3 text-sm text-red-500 hover:bg-red-50 rounded-lg font-medium transition-colors duration-200"
+                        className="flex items-center space-x-2 w-full px-4 py-3 text-sm text-red-500 hover:bg-red-500/10 rounded-lg font-medium transition-colors duration-200"
                       >
                         <LogOut className="h-4 w-4" />
                         <span>Logout</span>

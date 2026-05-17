@@ -62,7 +62,7 @@ export default function ContactUs1() {
                 }
                 transition={{ duration: 0.5, delay: 0.1 }}
                 className="flex w-full flex-col items-center justify-center gap-2 relative">
-                <span className="text-primary relative z-10 w-full text-center text-4xl font-bold tracking-tight italic md:text-5xl text-black dark:text-black">
+                <span className="text-primary relative z-10 w-full text-center text-4xl font-bold tracking-tight italic md:text-5xl text-foreground">
                   Contact Us
                 </span>
                 <SparklesCore

@@ -4,6 +4,8 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { LegalModal } from "../ui/legal-modal";
 import { legalContent } from "../../data/legalContent";
+import { Button } from "../ui/button";
+import { Input } from "../ui/input";
 import {
   Github,
   Linkedin,
@@ -204,7 +206,7 @@ export default function FooterStandard() {
           <div className="grid w-full grid-cols-2 items-start justify-between gap-8 px-5 lg:col-span-3">
             {["product", "company", "resources", "legal"].map((section) => (
               <div key={section} className="space-y-3">
-                <h4 className="text-xs font-semibold text-slate-900 uppercase tracking-wide">
+                <h4 className="text-xs font-semibold text-foreground uppercase tracking-wide">
                   {section === "product" && "Product"}
                   {section === "company" && "Company"}
                   {section === "resources" && "Resources"}
@@ -220,9 +222,9 @@ export default function FooterStandard() {
                             handleLegalClick(e, item.href);
                           }
                         }}
-                        className="text-xs text-slate-600 hover:text-rose-600 transition-colors cursor-pointer">
+                        className="text-xs text-muted-foreground hover:text-primary transition-colors cursor-pointer">
                         {item.name}
-                      </a>
+                      </Link>
                     </li>
                   ))}
                 </ul>
@@ -235,18 +237,8 @@ export default function FooterStandard() {
         {/* Bottom */}
         <div className="animate-rotate-3d via-primary h-px w-full bg-gradient-to-r from-transparent to-transparent" />
 
-        <div className="text-muted-foreground container m-auto flex flex-col items-center justify-between gap-4 p-4 text-xs md:flex-row md:px-0 md:text-sm">
-
-          <p>
-            &copy; {currentYear} Eventone | All rights reserved
-          </p>
-
-          <div className="flex items-center gap-4">
-
-            {data().bottomLinks.map(({ href, label }) => (
-
         {/* Divider */}
-        <div className="h-px bg-slate-200 my-10"></div>
+        <div className="h-px bg-border my-10"></div>
 
         {/* Bottom Row - Social & Links */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-12">
@@ -256,13 +248,11 @@ export default function FooterStandard() {
               <a
                 key={label}
                 href={href}
-                className="p-1.5 text-slate-600 hover:text-rose-600 transition-colors"
+                className="p-1.5 text-muted-foreground hover:text-primary transition-colors"
                 aria-label={label}>
                 <IconComponent className="h-4 w-4" />
               </a>
-
             ))}
-
           </div>
 
           {/* Privacy & Terms Links - Right */}
@@ -270,21 +260,21 @@ export default function FooterStandard() {
             <a
               href="/privacy"
               onClick={(e) => handleLegalClick(e, '/privacy')}
-              className="text-xs text-slate-600 hover:text-rose-600 transition-colors cursor-pointer">
+              className="text-xs text-muted-foreground hover:text-primary transition-colors cursor-pointer">
               Privacy
             </a>
             <a
               href="/terms"
               onClick={(e) => handleLegalClick(e, '/terms')}
-              className="text-xs text-slate-600 hover:text-rose-600 transition-colors cursor-pointer">
+              className="text-xs text-muted-foreground hover:text-primary transition-colors cursor-pointer">
               Terms
             </a>
           </div>
         </div>
 
         {/* Centered Copyright */}
-        <div className="flex justify-center">
-          <p className="text-xs text-slate-600 flex items-center gap-1">
+        <div className="flex justify-center py-6">
+          <p className="text-xs text-muted-foreground flex items-center gap-1">
             © {currentYear} Event.One
             <Heart className="h-3 w-3 text-rose-500 fill-rose-500" />
           </p>

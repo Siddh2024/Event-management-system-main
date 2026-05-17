@@ -88,7 +88,7 @@ export default function TestimonialsCarousel({
           transition={{ duration: 0.5 }}
           viewport={{ once: true }}
           className="relative mb-12 text-center md:mb-16">
-          <h1 className="mb-4 text-3xl font-bold text-black md:text-5xl lg:text-6xl">
+          <h1 className="mb-4 text-3xl font-bold text-foreground md:text-5xl lg:text-6xl">
             {title}
           </h1>
 

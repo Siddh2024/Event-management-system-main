@@ -7,9 +7,9 @@ import encrypted from "../../assets/logos/encrypted.jpg";
 import gdg from "../../assets/logos/gdg.jpg";
 export default function Page() {
   return (
-    <div className="h-screen w-screen overflow-hidden bg-white">
+    <div className="h-screen w-screen overflow-hidden bg-background">
       <div className="mx-auto mt-30 w-screen max-w-2xl">
-        <div className="text-center text-3xl text-black">
+        <div className="text-center text-3xl text-foreground">
           <span className="text-rose-600">Trusted by experts.</span>
           <br />
           <span>Used by the leaders.</span>
@@ -27,7 +27,7 @@ export default function Page() {
         </div>
       </div>
 
-      <div className="relative -mt-32 h-96 w-screen overflow-hidden [mask-image:radial-gradient(circle,white,transparent)] before:absolute before:inset-0 before:bg-[radial-gradient(circle_at_bottom,#e60a64,transparent_70%)] before:opacity-40 after:absolute after:top-1/2 after:-left-1/2 after:aspect-[1/0.7] after:w-[200%] after:rounded-[100%] after:border-t after:border-[#c5769066] after:bg-white">
+      <div className="relative -mt-32 h-96 w-screen overflow-hidden [mask-image:radial-gradient(circle,white,transparent)] before:absolute before:inset-0 before:bg-[radial-gradient(circle_at_bottom,#e60a64,transparent_70%)] before:opacity-40 after:absolute after:top-1/2 after:-left-1/2 after:aspect-[1/0.7] after:w-[200%] after:rounded-[100%] after:border-t after:border-[#c5769066] after:bg-background">
         <SparklesCore
           id="tsparticles"
           background="transparent"
